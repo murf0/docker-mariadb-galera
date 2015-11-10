@@ -16,12 +16,12 @@ if [ "x${CLUSTER}" = "xgcomm://" ]; then
         mysql_install_db > /dev/null 2>&1
         /create_mariadb_admin_user.sh
     fi
-    exec /usr/bin/mysqld_safe --wsrep_node_address="${NODE_ADDR}" \
+    /usr/bin/mysqld_safe --wsrep_node_address="${NODE_ADDR}" \
         --wsrep_node_incoming_address="${NODE_ADDR}" \
         --wsrep_new_cluster --wsrep_cluster_address="gcomm://"
 else
     echo "I'm not first! My buddies: $CLUSTER"
-    exec /usr/bin/mysqld_safe --wsrep_node_address="${NODE_ADDR}" \
+    /usr/bin/mysqld_safe --wsrep_node_address="${NODE_ADDR}" \
         --wsrep_node_incoming_address="${NODE_ADDR}" \
         --wsrep_cluster_address=${CLUSTER}
 fi
