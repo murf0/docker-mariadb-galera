@@ -12,7 +12,7 @@ VOLUME_HOME="/var/lib/mysql"
 if [ "x${CLUSTER}" = "x" ]; then
     echo "I'm alone Bootstrap Cluster (Throw away container if this is not the first container)"
     if [ ! -d $VOLUME_HOME/mysql ]; then
-        mysql_install_db > /dev/null 2>&1
+        mysql_install_db
         /create_mariadb_admin_user.sh
     fi
     /usr/bin/mysqld_safe --wsrep_node_address="${NODE_ADDR}" \
