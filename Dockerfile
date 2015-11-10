@@ -15,12 +15,13 @@ COPY setup.sh /setup.sh
 RUN chmod 755 /build.sh
 RUN /build.sh
 
+# Add config(s) - standalone and cluster mode
+ADD ./my.cnf /etc/mysql/my.cnf
+#Setup startup
+
 RUN mkdir /etc/service/mariadb
 ADD mariadbgalera.sh /etc/service/mariadb/run
 RUN chmod 755 /etc/service/mariadb/run
-
-# Add config(s) - standalone and cluster mode
-ADD ./my.cnf /etc/mysql/my.cnf
 
 expose  3306
 
