@@ -20,6 +20,6 @@ RUN mkdir /etc/service/mariadb
 ADD mariadbgalera.sh /etc/service/mariadb/run
 RUN chmod 755 /etc/service/mariadb/run
 
-expose  3306
+expose 3306 4567 4568 4444
 
 CMD ["/sbin/my_init"]
