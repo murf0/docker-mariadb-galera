@@ -11,10 +11,8 @@ while [[ RET -ne 0 ]]; do
 done
 
 
-PASS=${MARIADB_PASS:-$(pwgen -s 12 1)}
-_word=$( [ ${MARIADB_PASS} ] && echo "preset" || echo "random" )
-echo "=> Creating MariaDB admin user with ${_word} password"
-
+PASS=$(openssl rand -base64 33 | tr -dc 'a-zA-Z0-9')
+echo "=> Creating MariaDB admin user with ${PASS} password"
 mysql -uroot -e "CREATE USER 'admin'@'%' IDENTIFIED BY '$PASS'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION"
 
