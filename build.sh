@@ -19,3 +19,6 @@ apt-get -y update
 apt-get -y upgrade
 
 apt-get install -y iproute mariadb-server galera-3 pv iputils-ping net-tools percona-xtrabackup jq socat
+
+apt-get -y autoremove
+apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -8,9 +8,6 @@ COPY build.sh /build.sh
 RUN chmod 755 /build.sh
 RUN /build.sh
 
-COPY create_mariadb_admin_user.sh /create_mariadb_admin_user.sh
-RUN chmod 755 /create_mariadb_admin_user.sh
-
 COPY setup.sh /setup.sh
 RUN chmod 755 /build.sh
 RUN /build.sh

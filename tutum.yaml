@@ -6,4 +6,4 @@ galeratest:
     - global
   sequential_deployment: true
   volumes:
-    - /etc/mysql
+    - /var/lib/mysql
