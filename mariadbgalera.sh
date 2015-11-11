@@ -11,11 +11,9 @@ VOLUME_HOME="/var/lib/mysql"
 
 if [ "x${CLUSTER}" = "x" ]; then
     echo "I'm alone Bootstrap Cluster (Throw away container if this is not the first container)"
-    if [ ! -d $VOLUME_HOME/mysql ]; then
-        echo "run mysql_install_db"
-        mysql_install_db
-        /create_mariadb_admin_user.sh
-    fi
+    echo "run mysql_install_db"
+    mysql_install_db
+    /create_mariadb_admin_user.sh
 else
     echo "I'm not alone! My buddies: ${CLUSTER}"
 fi
