@@ -5,3 +5,5 @@ galeratest:
   roles:
     - global
   sequential_deployment: true
+  volumes:
+    - /etc/mysql
