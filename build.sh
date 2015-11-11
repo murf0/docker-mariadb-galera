@@ -18,7 +18,7 @@ add-apt-repository 'deb http://repo.percona.com/apt trusty main'
 apt-get -y update
 apt-get -y upgrade
 
-apt-get install -y iproute mariadb-server galera-3 pv iputils-ping net-tools jq
-# socat percona-xtrabackup
+apt-get install -y iproute mariadb-server galera-3 pv iputils-ping net-tools jq percona-xtrabackup
+# socat
 apt-get -y autoremove
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
