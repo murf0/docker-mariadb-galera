@@ -9,8 +9,6 @@ RUN chmod 755 /build.sh
 RUN /build.sh
 
 COPY setup.sh /setup.sh
-RUN chmod 755 /build.sh
-RUN /build.sh
 
 # Add config(s) - standalone and cluster mode
 ADD ./my.cnf /etc/mysql/my.cnf
