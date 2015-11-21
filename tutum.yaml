@@ -1,10 +1,27 @@
-galeratest:
+MariadbGalera:
   image: 'tutum.co/murf/mariadb-galera:latest'
   autoredeploy: true
+  deployment_strategy: high_availability
+  environment:
+    - 'wsrep_sst_auth=root:cR8MSGfw8t9l'
+    - 'TCP_PORTS=3306'
+    - 'HEALTH_CHECK=check port 9200 inter 5000 fastinter 2000 rise 2 fall 2"
+  expose:
+    - '3306'
   restart: on-failure
   roles:
     - global
   sequential_deployment: true
-  target_num_containers: 1
+  tags:
+    - prod
+  target_num_containers: 4
   volumes:
     - /var/lib/mysql
+
+MariadbProxy:
+  image: 'tutum/haproxy:latest'
+  links:
+    - MariadbGalera
+  restart: on-failure
+  roles:
+    - global
