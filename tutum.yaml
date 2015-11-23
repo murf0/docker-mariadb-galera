@@ -1,6 +1,5 @@
 MariadbGalera:
   image: 'tutum.co/murf/mariadb-galera:latest'
-  autoredeploy: true
   deployment_strategy: high_availability
   environment:
     - BALANCE=leastconn
