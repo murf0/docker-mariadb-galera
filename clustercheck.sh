@@ -78,7 +78,7 @@ then
             echo -en "Connection: close\r\n"
             echo -en "Content-Length: 43\r\n"
             echo -en "\r\n"
-            echo -en "Percona XtraDB Cluster Node is read-only.\r\n"
+            echo -en "Cluster Node is read-only.\r\n"
             sleep 0.1
             exit 1
         fi
@@ -90,7 +90,7 @@ then
     echo -en "Connection: close\r\n"
     echo -en "Content-Length: 40\r\n"
     echo -en "\r\n"
-    echo -en "Percona XtraDB Cluster Node is synced.\r\n"
+    echo -en "Cluster Node is synced.\r\n"
     sleep 0.1
     exit 0
 else
@@ -101,7 +101,7 @@ else
     echo -en "Connection: close\r\n"
     echo -en "Content-Length: 44\r\n"
     echo -en "\r\n"
-    echo -en "Percona XtraDB Cluster Node is not synced.\r\n"
+    echo -en "Cluster Node is not synced.\r\n"
     sleep 0.1
     exit 1
 fi

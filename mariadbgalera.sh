@@ -3,7 +3,15 @@ T=$(curl -s -H "Authorization: $TUTUM_AUTH" -H "Accept: application/json" $TUTUM
 CLUSTER=""
 for Y in $T; do
     CLUSTER="${CLUSTER}${Y},"
+    #Wait for a 200 from each of your buddies.
+    #while [ ! "$(curl -s -o /dev/null -w "%{http_code}" ${Y}:9200)" = "200" ];do
+    #    echo "${Y} is not ready Waiting 5"
+    #    sleep 5
+    #done
 done
+#Make sure mysql owns /var/lib/mysql
+chown -R mysql:mysql /var/lib/mysql
+
 CLUSTER="${CLUSTER%?}"
 NODE_ADDR=$(echo ${TUTUM_IP_ADDRESS} | awk -F\/ '{print $1}')
 
