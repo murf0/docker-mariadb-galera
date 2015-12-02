@@ -24,5 +24,5 @@ else
     echo "I'm not alone! My buddies: ${CLUSTER} and me ${NODE_ADDR}"
     CLUSTER="gcomm://${CLUSTER}"
 fi
-echo /usr/bin/mysqld_safe --wsrep_sst_auth=wsrep_sst_auth --wsrep_node_address="${NODE_ADDR}" --wsrep_node_incoming_address="${NODE_ADDR}" --wsrep_cluster_address="${CLUSTER}" --wsrep_node_name=${HOSTNAME}
-/usr/bin/mysqld_safe --wsrep_sst_auth=${wsrep_sst_auth} --wsrep_node_address="${NODE_ADDR}" --wsrep_node_incoming_address="${NODE_ADDR}" --wsrep_cluster_address="${CLUSTER}" --wsrep_node_name=${HOSTNAME}
+echo /usr/bin/mysqld_safe --wsrep_sst_auth=wsrep_sst_auth --wsrep_node_address="${NODE_ADDR}" --wsrep_node_incoming_address="${NODE_ADDR}" --wsrep_cluster_address="${CLUSTER}" --wsrep_node_name=${HOSTNAME} ${EXTRA_OPTIONS}
+/usr/bin/mysqld_safe --wsrep_sst_auth=${wsrep_sst_auth} --wsrep_node_address="${NODE_ADDR}" --wsrep_node_incoming_address="${NODE_ADDR}" --wsrep_cluster_address="${CLUSTER}" --wsrep_node_name=${HOSTNAME} ${EXTRA_OPTIONS}
